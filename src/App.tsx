@@ -1,12 +1,19 @@
-
 import './App.css'
-import { Button } from './components/ui/button'
+import Navbar from './components/Navbar'
+import Filtr from './components/Filtr'
+import Wyniki from './components/Wyniki'
+import Footer from './components/footer'
+
 function App() {
  
 
   return (
-    <Button>Button</Button>
-      
+    <div>
+    <Navbar />
+    <Filtr />
+    <Wyniki />
+    <Footer/>
+    </div>
   )
 }
 
