@@ -1,0 +1,75 @@
+  nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #ffffff;
+    border-radius: 6px;
+  }
+
+  .sort {
+    display: grid;
+    background: #ffffff;
+    font-size: large;
+    margin-top: 4%;
+    margin-left: 5px;
+    width: 30%;
+    height: 300px;
+    float: left;
+    border-radius: 6px;
+    padding-left: 10px;
+  }
+
+  .sortowanie {
+    grid-row: 1;
+  }
+
+  .sortowanieSelect {
+    grid-row: 2;
+    margin-left: 25%;
+  }
+
+  .filtr {
+    grid-row: 3;
+  }
+
+  .filtrSelect{
+    grid-row: 4;
+    margin-left: 24%;
+  }
+
+  .footer{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+  }
+
+  .oferty {
+    display: grid;
+    background: #ffffff;
+    width: 67%;
+    height: 700px;
+    float: right;
+    margin-top: 4%;
+    border-radius: 6px;
+  }
+
+  .one {
+    grid-row: 1;
+  }
+  .two {
+    grid-row: 2;
+  }
+  .three {
+    grid-row: 3;
+  }
+  .four {
+    grid-row: 4;
+  }
+  .five {
+    grid-row: 5;
+  }
+  .six {
+    grid-row: 6;
+  }
