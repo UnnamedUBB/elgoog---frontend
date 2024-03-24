@@ -11,7 +11,7 @@ import {
 
 function Footer() {
   return (
-    <div className="footer">
+    <div className="footer bg-white">
     <Pagination>
   <PaginationContent>
     <PaginationItem>
