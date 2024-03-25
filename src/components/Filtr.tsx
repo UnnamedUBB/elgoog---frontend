@@ -1,49 +1,58 @@
-import {
-    Select,
-    SelectContent,
-    SelectItem,
-    SelectTrigger,
-    SelectValue,
-  } from "@/components/ui/select"
 import { Button } from "./ui/button";
+import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "./ui/card";
+import { Input } from "./ui/input";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "./ui/select";
 
-function Filtr() {
-    return (
-      <div className="sort">
-        <div className="sortowanie">
-          <b>Sortowanie</b>
-        </div>
 
-        <div className="sortowanieSelect">
-        <Select>
-        <SelectTrigger className="w-[180px]">
-        <SelectValue placeholder="Cena" />
-        </SelectTrigger>
-        <SelectContent>
-        <SelectItem value="lowest">cena: od najniższej</SelectItem>
-        <SelectItem value="highest">cena: od najwyższej</SelectItem>
-        </SelectContent>
-        </Select>   
-        </div>
+interface FiltrProps {
+  onSortOrderChanged: (order: 'lowest' | 'highest' | '') => void;
+}
 
-        <div className="filtr">
-          <b>Filtry</b>
-        </div>
-
-        <div className="filtrSelect" style={{ textAlign: `center` }}>
-        <input type="Od" placeholder="od" style={{width: `50px`, float:"left",borderRadius: '5px', backgroundColor: '#f0f0f0', padding: '5px' }}></input>  
-        <input type="Do" placeholder="do" style={{width: `50px`, borderRadius: '5px', backgroundColor: '#f0f0f0', padding: '5px'}}></input> <br></br>
-        </div>
-        <div className="Filtrbutton" >
-        <Button style={{ textAlign: `center` }}>Filtruj</Button>
-        </div>
-      </div>
-
-      
-    );
-  }
-  
-  export default Filtr;
-  
+function Filtr({ onSortOrderChanged }: FiltrProps) {
+  const handleSortChange = (value: string) => {
+    onSortOrderChanged(value as 'lowest' | 'highest' | '');
+  };
 
  
+  return (
+    <div className="space-y-6">
+      <Card>
+        <CardHeader>
+          <CardTitle>
+            Sortowanie
+          </CardTitle>
+        </CardHeader>
+        <CardContent>
+          <Select onValueChange={handleSortChange}>
+            <SelectTrigger>
+              <SelectValue>Cena</SelectValue>
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="lowest">cena: od najniższej</SelectItem>
+              <SelectItem value="highest">cena: od najwyższej</SelectItem>
+            </SelectContent>
+          </Select>
+        </CardContent>
+      </Card>
+
+      <Card>
+        <CardHeader>
+          <CardTitle>
+            Filtr
+          </CardTitle>
+        </CardHeader>
+        <CardContent className="flex">
+          <div className="flex space-x-2">
+            <Input type="number" placeholder="od"></Input>
+            <Input type="number" placeholder="do"></Input>
+          </div>
+        </CardContent>
+        <CardFooter>
+          <Button className="mx-auto">Filtruj</Button>
+        </CardFooter>
+      </Card>
+    </div>
+  );
+}
+
+export default Filtr;
